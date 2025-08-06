@@ -11,25 +11,21 @@ export weight_path='checkpoints/D2MoRA'
 
 export device_id=0
 
-CUDA_VISIBLE_DEVICES=$device_id nohup python commonsense_evaluate.py \
+CUDA_VISIBLE_DEVICES=$device_id python commonsense_evaluate.py \
     --model LLaMA-7B \
     --adapter D2MoRA \
     --dataset piqa \
     --base_model $model_path \
     --batch_size 1 \
-    --lora_weights $weight_path|tee $weight_path/piqa.txt &
+    --lora_weights $weight_path|tee $weight_path/piqa.txt
 
-wait $!
-
-CUDA_VISIBLE_DEVICES=$device_id nohup python commonsense_evaluate.py \
+CUDA_VISIBLE_DEVICES=$device_id python commonsense_evaluate.py \
     --model LLaMA-7B \
     --adapter D2MoRA \
     --dataset boolq \
     --base_model $model_path \
     --batch_size 1 \
-    --lora_weights $weight_path|tee $weight_path/boolq.txt &
-
-wait $!
+    --lora_weights $weight_path|tee $weight_path/boolq.txt
 
 CUDA_VISIBLE_DEVICES=$device_id nohup python commonsense_evaluate.py \
     --model LLaMA-7B \
@@ -37,54 +33,44 @@ CUDA_VISIBLE_DEVICES=$device_id nohup python commonsense_evaluate.py \
     --dataset social_i_qa \
     --base_model $model_path \
     --batch_size 1 \
-    --lora_weights $weight_path|tee $weight_path/social_i_qa.txt &
+    --lora_weights $weight_path|tee $weight_path/social_i_qa.txt
 
-wait $!
-
-CUDA_VISIBLE_DEVICES=$device_id nohup python commonsense_evaluate.py \
+CUDA_VISIBLE_DEVICES=$device_id python commonsense_evaluate.py \
     --model LLaMA-7B \
     --adapter D2MoRA \
     --dataset winogrande \
     --base_model $model_path \
     --batch_size 1 \
-    --lora_weights $weight_path|tee $weight_path/winogrande.txt &
+    --lora_weights $weight_path|tee $weight_path/winogrande.txt
 
-wait $!
-
-CUDA_VISIBLE_DEVICES=$device_id nohup python commonsense_evaluate.py \
+CUDA_VISIBLE_DEVICES=$device_id python commonsense_evaluate.py \
     --model LLaMA-7B \
     --adapter D2MoRA \
     --dataset ARC-Challenge \
     --base_model $model_path \
     --batch_size 1 \
-    --lora_weights $weight_path|tee $weight_path/ARC-Challenge.txt &
+    --lora_weights $weight_path|tee $weight_path/ARC-Challenge.txt
 
-wait $!
-
-CUDA_VISIBLE_DEVICES=$device_id nohup python commonsense_evaluate.py \
+CUDA_VISIBLE_DEVICES=$device_id python commonsense_evaluate.py \
     --model LLaMA-7B \
     --adapter D2MoRA \
     --dataset ARC-Easy \
     --base_model $model_path \
     --batch_size 1 \
-    --lora_weights $weight_path|tee $weight_path/ARC-Easy.txt &
+    --lora_weights $weight_path|tee $weight_path/ARC-Easy.txt
 
-wait $!
-
-CUDA_VISIBLE_DEVICES=$device_id nohup python commonsense_evaluate.py \
+CUDA_VISIBLE_DEVICES=$device_id python commonsense_evaluate.py \
     --model LLaMA-7B \
     --adapter D2MoRA \
     --dataset openbookqa \
     --base_model $model_path \
     --batch_size 1 \
-    --lora_weights $weight_path|tee $weight_path/openbookqa.txt &
+    --lora_weights $weight_path|tee $weight_path/openbookqa.txt
 
-wait $!
-
-CUDA_VISIBLE_DEVICES=$device_id nohup python commonsense_evaluate.py \
+CUDA_VISIBLE_DEVICES=$device_id python commonsense_evaluate.py \
     --model LLaMA-7B \
     --adapter D2MoRA \
     --dataset hellaswag \
     --base_model $model_path \
     --batch_size 1 \
-    --lora_weights $weight_path|tee $weight_path/hellaswag.txt &
+    --lora_weights $weight_path|tee $weight_path/hellaswag.txt
