@@ -5,7 +5,7 @@ export device_id=0,1
 
 CUDA_VISIBLE_DEVICES=$device_id torchrun --nproc_per_node 2 --master_port 34517 finetune.py \
    --base_model $model_path \
-   --data_path 'LLM-Adapters/commonsense_170k.json' \
+   --data_path 'commonsense_170k.json' \
    --output_dir $weight_path \
    --batch_size 16 --micro_batch_size 4 --num_epochs 4 \
    --learning_rate 3e-4 --cutoff_len 256 --val_set_size 2000 \
